@@ -6,6 +6,7 @@ import Pie from './Components/common/Pie';
 import Inicio from './Components/View/Inicio';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap'
+import "./App.css";
 
 function App() {
   // const usuario = JSON.parse(localStorage.getItem("usuario")) || [];
@@ -20,7 +21,7 @@ function App() {
         <Routes>
                <Route exact path="/" element={<Inicio></Inicio>}></Route>
         </Routes>
-      {/* <Pie></Pie> */}
+      <Pie></Pie>
       </BrowserRouter>
     </section>
   );
