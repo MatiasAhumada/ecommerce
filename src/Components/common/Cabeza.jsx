@@ -1,10 +1,18 @@
 import React from 'react';
 import{ Container, Nav, Navbar, NavDropdown, Form, Button } from 'react-bootstrap';
-const Cabeza = () => {
+import { Link, useNavigate, NavLink } from "react-router-dom";
+
+const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
+  const navegar = useNavigate();
+  function logout() {
+    localStorage.removeItem("usuarioBar");
+    setUsuarioLogueado({});
+    navegar("/");
+  }
     return (
       <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand as={Link} to='/'>Tecno Más</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -12,21 +20,50 @@ const Cabeza = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
+            <NavLink to="/" className="nav">Inicio</NavLink>
+            <NavLink to="/nosotros" className="nav">Nosotros</NavLink>           
+            <NavLink to="/menu" className="nav">Menu</NavLink>
+            <NavLink to="/registro" className="nav">Registro</NavLink>
+
+            {usuarioLogueado.email ? (
+              <>
+                <Button variant="white" className="text-white" onClick={logout}>
+                  Salir
+                </Button>
+              </>
+            ) : (
+              <NavLink to="/login" className="nav">Iniciar Sesión</NavLink>
+            )}
+
+            {usuarioLogueado.isAdmin ? (
+              <>
+                <NavDropdown title="Administrador" id="nav-dropdown">
+                  <NavDropdown.Item
+                    eventKey="4.1"
+                    as={Link}
+                    to={"/administrar"}
+                  >
+                    Productos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    eventKey="4.2"
+                    as={Link}
+                    to={"/adminPedidos"}
+                  >
+                    Pedidos
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    eventKey="4.3"
+                    as={Link}
+                    to={"/adminUsuarios"}
+                  >
+                    Usuarios
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </>
+            ) : (
+              <></>
+            )}
           </Nav>
           <Form className="d-flex">
             <Form.Control
