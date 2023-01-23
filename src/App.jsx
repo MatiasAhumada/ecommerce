@@ -8,6 +8,7 @@ import Login from './Components/Login'
 import Register from './Components/Register'
 import RutasProtegidas from './Components/routes/RutasProtegidas';
 import RutasAdmin from './Components/routes/RutasAdmin';
+import AdminUsuarios from './Components/AdminUsuarios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap'
 import 'react-icons';
@@ -16,7 +17,7 @@ import { useState } from 'react';
 
 function App() {
   
-  const usuario = JSON.parse(localStorage.getItem("usuario")) || [];
+  const usuario = JSON.parse(localStorage.getItem("usuarioEcommerce")) || [];
   const [usuarioLogeado, setUsuarioLogeado] = useState(usuario);
   return (
    
@@ -42,6 +43,11 @@ function App() {
                 <RutasAdmin></RutasAdmin>
               </RutasProtegidas>
             }
+          ></Route>
+          <Route
+            exact
+            path="/adminUsuarios"
+            element={<AdminUsuarios></AdminUsuarios>}
           ></Route>
           </Routes>
       <Pie></Pie>

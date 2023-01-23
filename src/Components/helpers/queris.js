@@ -1,4 +1,4 @@
-const URL=procces.env.REACT_APP_API_LOCAL_PRODUCTOS
+const URL=process.env.REACT_APP_API_LOCAL_PRODUCTOS
 const urlUsuario =process.env.REACT_APP_API_LOCAL_USUARIOS
 // PRODUCTOS
 export const crearProductoApi = async (producto) => {

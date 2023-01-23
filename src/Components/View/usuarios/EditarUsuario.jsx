@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import { editarUsuarioApi, obtenerUsuarioApi } from "../../helpers/queris";
 import Swal from "sweetalert2";
-import "../../../css/editarPedido.css";
+
 
 
 const EditarUsuario = () => {

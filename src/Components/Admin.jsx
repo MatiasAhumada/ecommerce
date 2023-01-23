@@ -24,7 +24,7 @@ const Admin =()=>{
           </div>
           <hr />
           
-          <Table  >
+          <Table responsive bordered hover >
             <thead>
               <tr>
                 <th>Id del Producto</th>
@@ -35,7 +35,7 @@ const Admin =()=>{
                 <th>Opciones</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="w-100">
              {
                 productos.map((productos)=><ItemProducto key={productos._id} producto={productos} setProductos={setProductos}></ItemProducto>)
              }

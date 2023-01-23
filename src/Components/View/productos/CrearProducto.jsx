@@ -99,7 +99,7 @@ const CrearProducto = () => {
                 message: "El precio debe ser como minimo de $10",
               },
               max: {
-                value: 1000,
+                value: 1000000,
                 message: "El precio de producto como maximo debe ser de 10000",
               },
             })}
@@ -133,10 +133,10 @@ const CrearProducto = () => {
             })}
           >
             <option value="">Seleccione una opcion</option>
-            <option value="picante epiko">Picante Épico</option>
-            <option value="medio picante">Medio Picante</option>
-            <option value="comida caliente">Comida Caliente</option>
-            <option value="comida fria">Comida Fría</option>
+            <option value="picante epiko">Samsung</option>
+            <option value="medio picante">Motorola</option>
+            <option value="comida caliente">LG</option>
+            <option value="comida fria">Apple</option>
           </Form.Select>
           <Form.Text className="text-white">
             {errors.categoria?.message}

@@ -23,7 +23,7 @@ const Login = ({ setUsuarioLogeado }) => {
   const onSubmit = (dato) => {
     usuarioLogin(dato).then((respuesta) => {
       if (respuesta) {
-        localStorage.setItem("usuarioBar", JSON.stringify(respuesta));
+        localStorage.setItem("usuarioEcommerce", JSON.stringify(respuesta));
         setUsuarioLogeado(respuesta);
         navegar("/");
       } else {

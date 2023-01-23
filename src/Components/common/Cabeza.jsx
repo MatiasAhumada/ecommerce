@@ -5,7 +5,7 @@ import { Link, useNavigate, NavLink } from "react-router-dom";
 const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
   const navegar = useNavigate();
   function logout() {
-    localStorage.removeItem("usuarioBar");
+    localStorage.removeItem("usuarioEcommerce");
     setUsuarioLogueado({});
     navegar("/");
   }
@@ -15,19 +15,29 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
         <Navbar.Brand as={Link} to='/'>Tecno Más</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
+        <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <NavLink to="/" className="nav">Inicio</NavLink>
-            <NavLink to="/nosotros" className="nav">Nosotros</NavLink>           
-            <NavLink to="/menu" className="nav">Menu</NavLink>
-            <NavLink to="/registro" className="nav">Registro</NavLink>
+            <NavLink to="/" className=" btn btn-secondary">Inicio</NavLink>
+            {/* <NavLink to="/nosotros" className="btn btn-secondary">Nosotros</NavLink>            */}
+            <NavLink to="/menu" className="btn btn-secondary">Catalogo</NavLink>
+           
+            <NavLink to="/registro" className="btn btn-secondary">Registro</NavLink>
 
             {usuarioLogueado.email ? (
               <>
-                <Button variant="white" className="text-white" onClick={logout}>
+                <Button variant="dark" className="text-white" onClick={logout}>
                   Salir
                 </Button>
               </>
@@ -37,7 +47,7 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
 
             {usuarioLogueado.isAdmin ? (
               <>
-                <NavDropdown title="Administrador" id="nav-dropdown">
+                <NavDropdown title="Administrador" className='text-dark' id="nav-dropdown">
                   <NavDropdown.Item
                     eventKey="4.1"
                     as={Link}
@@ -65,15 +75,7 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
               <></>
             )}
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>

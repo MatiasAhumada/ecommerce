@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Admin from "../Admin";
-// import EditarPedido from "../Components/views/pedido/EditarPedido";
+// import EditarPedido from "../View/pedidos/EditarPedido";
 import CrearProducto from "../View/productos/CrearProducto";
 import EditarProducto from "../View/productos/EditarProducto";
-// import CrearUsuario from "../Components/views/usuario/CrearUsuario";
-// import EditarUsuario from "../Components/views/usuario/EditarUsuario";
+import CrearUsuario from "../View/usuarios/CrearUsuario";
+import EditarUsuario from "../View/usuarios/EditarUsuario";
 
 const RutasAdmin = () => {
   return (
@@ -16,11 +16,11 @@ const RutasAdmin = () => {
           path="/crear"
           element={<CrearProducto></CrearProducto>}
         ></Route>
-        {/* <Route
+        <Route
           exact
           path="/crearUsuario"
           element={<CrearUsuario></CrearUsuario>}
-        ></Route> */}
+        ></Route>
         <Route
           exact
           path="/editar/:id"
@@ -31,11 +31,11 @@ const RutasAdmin = () => {
           path="/editar-Pedido/:id"
           element={<EditarPedido></EditarPedido>}
         ></Route> */}
-        {/* <Route
+        <Route
           exact
           path="/editarUsuario/:id"
           element={<EditarUsuario></EditarUsuario>}
-        ></Route> */}
+        ></Route>
       </Routes>
     </>
   );

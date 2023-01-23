@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 
 const RutasProtegidas = ({ children }) => {
-  const token = JSON.parse(localStorage.getItem("usuarioBar")) || null;
+  const token = JSON.parse(localStorage.getItem("usuarioEcommerce")) || null;
   if (!token) {
     return <Navigate to={"/login"}></Navigate>;
   } else {

@@ -46,7 +46,7 @@ const ItemProducto = ({ producto, setProductos }) => {
       <td>{producto._id}</td>
       <td  className="text-center">{producto.nombreProducto}</td>
       <td  className="text-center">${producto.precio}</td>
-      <td  className="text-center">{producto.imagen}</td>
+      <td  className="text-center ">{producto.imagen}</td>
       <td className="text-center">{producto.categoria}</td>
       <td className="text-center">
         <Link
