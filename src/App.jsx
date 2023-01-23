@@ -14,6 +14,7 @@ import 'react-bootstrap'
 import 'react-icons';
 import "./App.css";
 import { useState } from 'react';
+import DetalleProducto from './Components/View/productos/DetalleProducto';
 
 function App() {
   
@@ -49,6 +50,9 @@ function App() {
             path="/adminUsuarios"
             element={<AdminUsuarios></AdminUsuarios>}
           ></Route>
+          <Route exact
+          path='/detalle-producto/:id'
+          element={DetalleProducto}> </Route>
           </Routes>
       <Pie></Pie>
       </BrowserRouter>
