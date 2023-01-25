@@ -15,7 +15,7 @@ const AdminUsuarios = () => {
   }, []);
 
   return (
-    <section className="container mainSection ">
+    <section className="container  ">
       <div className="align-items-center ">
         <h1 className="display-4">Usuarios disponibles</h1>
         <Link className="btn btn-primary" to="/administrar/crearUsuario">

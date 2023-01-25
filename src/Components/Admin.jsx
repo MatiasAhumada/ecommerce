@@ -17,7 +17,7 @@ const Admin =()=>{
       }, []);
     
       return (
-        <section className="container mainSection">
+        <section className="container ">
           <div className="justify-content-between align-items-center mt-5">
             <h1 className="display-4">Productos disponibles</h1>
             <Link className="btn btn-primary" to="/administrar/crear">Agregar</Link>
@@ -31,7 +31,7 @@ const Admin =()=>{
                 <th>Producto</th>
                 <th>Precio</th>
                 <th>URL de Imagen</th>
-                <th>Categoria</th>
+                <th>Marca</th>
                 <th>Opciones</th>
               </tr>
             </thead>

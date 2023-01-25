@@ -15,10 +15,10 @@ const CrearProducto = () => {
   } = useForm({
     defaultValues: {
       nombreProducto: "",
-      precio: 1,
+      precio: '',
       imagen: "",
       detalle: "",
-      categoria: "",
+      marca: "",
     },
   });
   const navegacion = useNavigate();
@@ -40,7 +40,7 @@ const CrearProducto = () => {
   };
 
   return (
-    <section className="container mainSection">
+    <section className="container ">
       <h1 className="display-4 mt-5 text-center">Nuevo producto</h1>
       <hr />
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -126,9 +126,9 @@ const CrearProducto = () => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
-          <Form.Label  className="crearProducto">Categoria*</Form.Label>
+          <Form.Label  className="crearProducto">Marca*</Form.Label>
           <Form.Select
-            {...register("categoria", {
+            {...register("marca", {
               required: "Debe seleccionar una categoría",
             })}
           >
@@ -139,7 +139,7 @@ const CrearProducto = () => {
             <option value="comida fria">Apple</option>
           </Form.Select>
           <Form.Text className="text-white">
-            {errors.categoria?.message}
+            {errors.marca?.message}
           </Form.Text>
         </Form.Group>
         <Button variant="danger"  type="submit">

@@ -38,7 +38,7 @@ const CrearUsuario = () => {
   };
 
   return (
-    <section className="container mainSection">
+    <section className="container ">
       <h1 className="display-4 mt-5">Nuevo usuario</h1>
       <hr />
       <Form onSubmit={handleSubmit(onSubmit)}>

@@ -19,7 +19,7 @@ const EditarProducto = () => {
       precio: 1,
       imagen: "",
       detalle: "",
-      categoria: "",
+      marca: "",
     },
   });
   const navegacion = useNavigate();
@@ -43,7 +43,7 @@ const EditarProducto = () => {
         setValue("precio", respuesta.dato.precio);
         setValue("imagen", respuesta.dato.imagen);
         setValue("detalle", respuesta.dato.detalle);
-        setValue("categoria", respuesta.dato.categoria);
+        setValue("marca", respuesta.dato.marca);
        
       } else {
         Swal.fire("Ocurrio un error", "Intente mas tarde", "error");
@@ -55,7 +55,7 @@ const EditarProducto = () => {
     <div style={{
       backgroundColor: ''
     }}>
-      <section className="container mainSection" >
+      <section className="container " >
       <h1 className="display-4 mt-5">Editar producto</h1>
       <hr />
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -141,9 +141,9 @@ const EditarProducto = () => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
-          <Form.Label className="editar">Categoria*</Form.Label>
+          <Form.Label className="editar">Marca*</Form.Label>
           <Form.Select
-            {...register("categoria", {
+            {...register("marca", {
               required: "Debe seleccionar una categoría",
             })}
           >
@@ -154,7 +154,7 @@ const EditarProducto = () => {
             <option value="comida fria">Apple</option>
           </Form.Select>
           <Form.Text className="text-white">
-            {errors.categoria?.message}
+            {errors.marca?.message}
           </Form.Text>
         </Form.Group>
         <Button variant="danger" type="submit">

@@ -52,7 +52,7 @@ function App() {
           ></Route>
           <Route exact
           path='/detalle-producto/:id'
-          element={DetalleProducto}> </Route>
+          element={<DetalleProducto></DetalleProducto>}> </Route>
           </Routes>
       <Pie></Pie>
       </BrowserRouter>

@@ -25,7 +25,7 @@ const Inicio = () => {
   mostrarSpiner === true ? (
    <Spiner className='mt-5 pt-5'></Spiner>
   ) : (
-    <Row xs={1} md={4} lg={4} className="g-4">
+    <Row xs={1} md={4} lg={4} className="g-4 mt-3">
         
         {productos.map((objeto, _id) => (
           <CardProducto
@@ -33,7 +33,7 @@ const Inicio = () => {
             nombreProducto={objeto.nombreProducto}
             precio={objeto.precio}
             imagen={objeto.imagen}
-            categoria={objeto.categoria}
+            marca={objeto.marca}
             descripcion={objeto.detalle}
             id={objeto._id}
           ></CardProducto>

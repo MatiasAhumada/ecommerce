@@ -3,11 +3,11 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Badge, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 
 const CardProducto = (props) => {
-  const usuario = JSON.parse(localStorage.getItem("usuarioBar")) || [];
+  const usuario = JSON.parse(localStorage.getItem("usuarioEcommerce")) || [];
   const navegacion = useNavigate();
   const onClick = () => {
     if (usuario == "") {
@@ -24,14 +24,17 @@ const CardProducto = (props) => {
         <Card.Img variant="top" src={props.imagen} />
         <Card.Body>
           <Card.Title className="dos">{props.nombreProducto}</Card.Title>
+          <Badge className="">{props.marca}</Badge>
           <Card.Text>{props.descripcion}</Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
           <ListGroup.Item className="dos">${props.precio}</ListGroup.Item>
          
-          <ListGroup.Item className="dos">{props.categoria}</ListGroup.Item>
+          
         </ListGroup>
+        
         <Card.Body>
+       
           <Button className="dos mt-2"  onClick={onClick}>
             Comprar
           </Button>

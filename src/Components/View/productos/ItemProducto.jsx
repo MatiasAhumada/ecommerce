@@ -47,7 +47,7 @@ const ItemProducto = ({ producto, setProductos }) => {
       <td  className="text-center">{producto.nombreProducto}</td>
       <td  className="text-center">${producto.precio}</td>
       <td  className="text-center ">{producto.imagen}</td>
-      <td className="text-center">{producto.categoria}</td>
+      <td className="text-center">{producto.marca}</td>
       <td className="text-center">
         <Link
           className="btn btn-warning my-2"
