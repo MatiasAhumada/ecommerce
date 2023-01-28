@@ -1,4 +1,4 @@
-// import "../../../css/inicio.css";
+// import "../../css/inicio.css";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
@@ -20,7 +20,7 @@ const CardProducto = (props) => {
 
   return (
     <Container className="mt-4">
-      <Card className="dos">
+      <Card className="dos inicio ">
         <Card.Img variant="top" src={props.imagen} />
         <Card.Body>
           <Card.Title className="dos">{props.nombreProducto}</Card.Title>
