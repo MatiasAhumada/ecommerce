@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, FormGroup } from "react-bootstrap";
 import { crearProductoApi } from "../../helpers/queris";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +26,7 @@ const CrearProducto = () => {
       expandible:"",
       camara:"",
       liberado:"",
+      resena:""
       
      
     },
@@ -292,7 +293,27 @@ const CrearProducto = () => {
             {errors.liberado?.message}
           </Form.Text>
         </Form.Group>
-       
+        <Form.Group className="mb-3" controlId="formMemoriaRam">
+          <Form.Label  >Memoria Ram*</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder=" Ej:  Detalles del equipo"
+            {...register("resena", {
+              required: "Este dato es obligatorio",
+              minLength: {
+                value: 100,
+                message: "Debe ingresar como minimo 100 caracteres",
+              },
+              maxLength: {
+                value: 10000,
+                message: "Debe ingresar como maximo 10000 caracteres",
+              },
+            })}
+          />
+          <Form.Text className="text-dark">
+            {errors.resena?.message}
+          </Form.Text>
+          </Form.Group>
         <Button variant="danger"  type="submit">
           Guardar
         </Button>

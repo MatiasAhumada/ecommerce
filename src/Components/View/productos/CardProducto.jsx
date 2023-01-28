@@ -24,14 +24,11 @@ const CardProducto = (props) => {
         <Card.Img variant="top" src={props.imagen} />
         <Card.Body>
           <Card.Title className="dos">{props.nombreProducto}</Card.Title>
-          <Badge className="">{props.marca}</Badge>
-          <Card.Text>{props.descripcion}</Card.Text>
+          <Badge bg='warning' className="text-dark">{props.marca}</Badge>
+          <Card.Text>{props.resena}</Card.Text>
+          <Badge bg='warning' className="text-dark">${props.precio}</Badge>
         </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item className="dos">${props.precio}</ListGroup.Item>
-         
-          
-        </ListGroup>
+        
         
         <Card.Body>
        

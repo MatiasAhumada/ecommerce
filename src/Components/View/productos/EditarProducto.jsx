@@ -26,6 +26,7 @@ const EditarProducto = () => {
       ram: "",
       camara: "",
       liberado: "",
+      resena:""
     },
   });
   const navegacion = useNavigate();
@@ -56,6 +57,7 @@ const EditarProducto = () => {
         setValue("ram", respuesta.dato.ram);
         setValue("camara", respuesta.dato.camara);
         setValue("liberado", respuesta.dato.liberado);
+        setValue("resena", respuesta.dato.resena);
       } else {
         Swal.fire("Ocurrio un error", "Intente mas tarde", "error");
       }
@@ -311,7 +313,27 @@ const EditarProducto = () => {
             {errors.liberado?.message}
           </Form.Text>
         </Form.Group>
-       
+        <Form.Group className="mb-3" controlId="formMemoriaRam">
+          <Form.Label  >Reseña del equipo*</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder=" Ej:  Detalles del equipo"
+            {...register("resena", {
+              required: "Este dato es obligatorio",
+              minLength: {
+                value: 100,
+                message: "Debe ingresar como minimo 100 caracteres",
+              },
+              maxLength: {
+                value: 10000,
+                message: "Debe ingresar como maximo 10000 caracteres",
+              },
+            })}
+          />
+          <Form.Text className="text-dark">
+            {errors.resena?.message}
+          </Form.Text>
+          </Form.Group>
         <Button variant="danger"  type="submit">
           Guardar
         </Button>

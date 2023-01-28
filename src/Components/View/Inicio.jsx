@@ -35,14 +35,7 @@ const Inicio = () => {
             precio={objeto.precio}
             imagen={objeto.imagen}
             marca={objeto.marca}
-            ={obj}
-            ={obj}
-            ={obj}
-            ={obj}
-            ={obj}
-            ={obj}
-            ={obj}
-            ={obj}
+            resena={objeto.resena}
             id={objeto._id}
           ></CardProducto>
         ))}
