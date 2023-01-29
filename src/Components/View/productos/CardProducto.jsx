@@ -7,14 +7,16 @@ import { Badge, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 
 const CardProducto = (props) => {
-  const usuario = JSON.parse(localStorage.getItem("usuarioEcommerce")) || [];
+  const usuario= JSON.parse(localStorage.getItem("usuarioEcommerce")) || [];
   const navegacion = useNavigate();
   const onClick = () => {
-    if (usuario == "") {
-      navegacion("/login");
-      Swal.fire("Debe estar logeado para realizar esta accion");
-    } else {
+    if (usuario == '') {
       navegacion("/crear-pedido");
+     
+    } else {
+      navegacion("/login");
+      Swal.fire("Debe estar logeado para realizar esta accion",
+      '', 'error');
     }
   };
 

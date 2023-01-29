@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Admin from "../Admin";
-// import EditarPedido from "../View/pedidos/EditarPedido";
+import EditarPedido from "../View/pedidos/EditarPedido";
 import CrearProducto from "../View/productos/CrearProducto";
 import EditarProducto from "../View/productos/EditarProducto";
 import CrearUsuario from "../View/usuarios/CrearUsuario";
@@ -26,11 +26,11 @@ const RutasAdmin = () => {
           path="/editar/:id"
           element={<EditarProducto></EditarProducto>}
         ></Route>
-        {/* <Route
+        <Route
           exact
           path="/editar-Pedido/:id"
           element={<EditarPedido></EditarPedido>}
-        ></Route> */}
+        ></Route>
         <Route
           exact
           path="/editarUsuario/:id"

@@ -22,11 +22,19 @@ const Inicio = () => {
           console.log(error)}
       });
     }, []);
-    const mostrarComponente =
-  mostrarSpiner === true ? (
-   <Spiner className='mt-5 pt-5'></Spiner>
-  ) : (
-    <Row xs={1} md={3} lg={4} className="my-5 ">
+  //   const mostrarComponente =
+  // mostrarSpiner === true ? (
+  //  <Spiner className='mt-5 pt-5'></Spiner>
+  // ) : (
+    
+  // );
+
+    return (
+        <section>
+            <Banner>  </Banner>
+           {/* {mostrarComponente}
+            */}
+            <Row xs={1} md={3} lg={4} className="my-5 ">
         
         {productos.map((objeto, _id) => (
           <CardProducto
@@ -40,13 +48,6 @@ const Inicio = () => {
           ></CardProducto>
         ))}
       </Row>
-  );
-
-    return (
-        <section>
-            <Banner>  </Banner>
-           {mostrarComponente}
-            
         </section>
     );
 };
