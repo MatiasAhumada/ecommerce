@@ -1,4 +1,31 @@
-.inicio{
-    width: 500px;
+
+
+
+
+img.card-img-top{
+  object-fit: cover;
+  height: 200px;
+}
+.tres{
+    height: 200px;
+}
+
+
+
+@media screen and (max-width: 419px) {
+  img {
+    width:100%;
+  }
+  img.right {
+    width: 90%;
     
+  }
+
+
+}
+
+@media screen and (min-width:420px) and (max-width:820px){
+    .tres{
+        height: 300px;
+    }
 }

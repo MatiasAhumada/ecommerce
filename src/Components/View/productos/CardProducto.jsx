@@ -1,6 +1,6 @@
-// import "../../css/inicio.css";
+import "../../css/inicio.css";
 import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
+
 import Container from "react-bootstrap/Container";
 import { Link, useNavigate } from "react-router-dom";
 import { Badge, Button } from "react-bootstrap";
@@ -19,24 +19,24 @@ const CardProducto = (props) => {
   };
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 text-center">
       <Card className="dos inicio ">
         <Card.Img variant="top" src={props.imagen} />
         <Card.Body>
           <Card.Title className="dos">{props.nombreProducto}</Card.Title>
           <Badge bg='warning' className="text-dark">{props.marca}</Badge>
-          <Card.Text>{props.resena}</Card.Text>
+          <Card.Text className="tres" >{props.resena}</Card.Text>
           <Badge bg='warning' className="text-dark">${props.precio}</Badge>
         </Card.Body>
         
         
         <Card.Body>
        
-          <Button className="dos mt-2"  onClick={onClick}>
+          <Button className=" mt-2"  onClick={onClick}>
             Comprar
           </Button>
           <Button
-            className="dos ms-1 mt-2"
+            className=" ms-1 mt-2"
             as={Link}
             to={`/detalle-producto/${props.id}`}
           >

@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import {  Row } from 'react-bootstrap';
 import { consultarProductoApi } from '../helpers/queris';
 import Banner from '../home/Banner';
 import Spiner from '../Spiner';
@@ -26,7 +26,7 @@ const Inicio = () => {
   mostrarSpiner === true ? (
    <Spiner className='mt-5 pt-5'></Spiner>
   ) : (
-    <Row xs={1} md={4} lg={4} className="g-4 my-5">
+    <Row xs={1} md={3} lg={4} className="my-5 ">
         
         {productos.map((objeto, _id) => (
           <CardProducto
@@ -45,7 +45,8 @@ const Inicio = () => {
     return (
         <section>
             <Banner>  </Banner>
-            {mostrarComponente}
+           {mostrarComponente}
+            
         </section>
     );
 };
