@@ -1,0 +1,25 @@
+
+
+div#confirmar.card{
+    width: 100%;
+    margin-bottom: 120px;
+}
+
+
+@media only screen and (max-width: 822px) and (min-width: 767px)
+{
+    div.col-lg-4.col-md-6.col-sm-12{
+        width: 100%;
+    }
+    div.text-center.card-title.h5{
+        font-size: 40px
+        ;
+    }
+    div.text-center.card-subtitle.h6{
+        font-size: 25px;
+    }
+    span.bg-light.badge.bg-primary{
+        font-size: 15px
+        ;
+    }
+}

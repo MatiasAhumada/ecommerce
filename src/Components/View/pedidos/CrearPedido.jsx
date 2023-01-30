@@ -1,19 +1,20 @@
 import {
     Button,
-    Form,
     Container,
     Row,
     Card,
     Col,
     Badge,
   } from "react-bootstrap";
+  import Form from 'react-bootstrap/Form';
   import { useForm } from "react-hook-form";
   import Swal from "sweetalert2";
   import { useNavigate } from "react-router-dom";
   import { consultarProductoApi, crearPedidoAPI } from "../../helpers/queris";
   import { useEffect, useState } from "react";
   import ListaPedido from "./ListaPedido";
-//   import "../../../css/carrito.css";
+  import { AiOutlineArrowDown} from "react-icons/ai"
+  import "../../css/carrito.css";
 
   
   const CrearPedido = ({ usuarioLogueado }) => {
@@ -41,16 +42,20 @@ import {
     };
   
     useEffect(() => {
-      if (!localStorage.getItem("usuarioBar")) {
+      if (!localStorage.getItem("usuarioEcommerce")) {
         navegacion("/login");
+        Swal.fire("Debe estar logeado para realizar un pedido",
+        '', 'error');
+
       }
       consultarProductoApi().then((respuesta) => {
         setProductos(respuesta);
       });
+
       const pedidoFinal = menuPedido.map((producto) => producto.nombreProducto);
       setValue("pedido", pedidoFinal);
-      const total = menuPedido
-        .map((producto) => Number(producto.precio))
+
+      const total = menuPedido.map((producto) => Number(producto.precio))
         .reduce((a, b) => a + b, 0);
       setSuma(total);
       setValue("total", total);
@@ -80,7 +85,7 @@ import {
             "success"
           );
           reset();
-        navegacion('/menu')
+        navegacion('/')
         } else {
           Swal.fire("Ocurrio un error", "Vuelva a intentarlo mas tarde", "error");
         }
@@ -105,9 +110,9 @@ import {
                         Precio: ${producto.precio}
                       </Card.Subtitle>
                       <aside className="text-center">
-                        <Badge className="bg-light">
-                          {" "}
-                          {producto.categoria}
+                        <Badge className="bg-warning text-dark">
+                          
+                          {producto.marca}
                         </Badge>
                       </aside>
                     </Card.Body>
@@ -130,7 +135,7 @@ import {
             ) : (
               <>
                 <Card>
-                  <Card.Header>
+                  <Card.Header className="text-center">
                     <h3>Productos seleccionados</h3>
                   </Card.Header>
                   <Card.Body>
@@ -144,8 +149,9 @@ import {
                   </Card.Footer>
                 </Card>
                 <h4 className="text-center display-5">
-                  <i className="bi bi-arrow-down fs-2">Confirmar su pedido</i>
-                  <i className="bi bi-arrow-down fs-2"></i>
+                <AiOutlineArrowDown></AiOutlineArrowDown>
+                  <i className="bi bi-arrow-down fs-2">Confirmar tu pedido</i>
+                <AiOutlineArrowDown></AiOutlineArrowDown>
                 </h4>
               </>
             )}
@@ -156,11 +162,11 @@ import {
         <Container>
         <Card id="confirmar">
             <Card.Header>
-              <h2 className="display-4">Realizar pedido</h2>
+              <h2 className="display-4 text-center">Realizar pedido</h2>
             </Card.Header>
             <Card.Body>
-              <Form onSubmit={handleSubmit(onSubmit)}>
-                <Form.Group className="mb-3" controlId="formNombrePedido">
+              <Form  onSubmit={handleSubmit(onSubmit)}>
+                <Form.Group className="mb-3 me-4 " controlId="formNombrePedido">
                   <Form.Label>Nombre de usuario</Form.Label>
                   <Form.Control
                     type="text"
@@ -182,7 +188,7 @@ import {
                     {errors.nombrePedido?.message}
                   </Form.Text>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formPedido">
+                <Form.Group className="mb-3 me-4 " controlId="formPedido">
                   <Form.Label>Pedido*</Form.Label>
                   <Form.Control
                     type="text"
@@ -202,7 +208,7 @@ import {
                     {errors.pedido?.message}
                   </Form.Text>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formTotal">
+                <Form.Group className="mb-3 me-4 " controlId="formTotal">
                   <Form.Label>Monto total</Form.Label>
                   <Form.Control
                     type="number"
@@ -224,7 +230,23 @@ import {
                     {errors.total?.message}
                   </Form.Text>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formEstado">
+                <Form.Group className="mb-3 me-5 " controlId="formMetodo">
+          <Form.Label  >Metodo de pago*</Form.Label>
+          <Form.Select
+            {...register("metodo", {
+              required: "Debe seleccionar un metodo de pago",
+            })}
+          >
+            <option value="">Seleccione una opcion</option>
+            <option value="Transferencia">Transferencia</option>
+            <option value="Efectivo">Efectivo</option>
+            
+          </Form.Select>
+          <Form.Text className="text-dark">
+            {errors.metodo?.message}
+          </Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-3 me-4 " controlId="formEstado">
                   <Form.Label>Estado</Form.Label>
                   <Form.Control
                     type="text"
@@ -246,6 +268,7 @@ import {
                     {errors.estado?.message}
                   </Form.Text>
                 </Form.Group>
+                
                 <Button variant="warning" type="submit">
                   Realizar pedido
                 </Button>

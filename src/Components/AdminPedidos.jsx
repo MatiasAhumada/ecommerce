@@ -23,14 +23,15 @@ const AdminPedidos = () => {
           </div>
           <hr />
           
-          <Table responsive bordered hover >
+          <Table responsive bordered hover  >
             <thead>
-              <tr>
+              <tr className="text-center">
                 
                 <th>Usuario</th>
                 <th>Pedido</th>
                
                 <th>Estado</th>
+                <th>Forma de pago</th>
                 <th>Opciones</th>
               </tr>
             </thead>

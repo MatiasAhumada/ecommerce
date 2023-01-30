@@ -41,12 +41,13 @@ const ItemPedido = ({ pedido, setPedidos }) => {
   };
 
   return (
-    <tr>
+    <tr className="text-center">
       <td>{pedido.nombrePedido}</td>
       <td>
         <p className="cortarText">{`${pedido.pedido}`}</p>
       </td>
       <td>{pedido.estado}</td>
+      <td>{pedido.metodo}</td>
       <td>
         <Link
           className="btn btn-dark me-2 mb-1"

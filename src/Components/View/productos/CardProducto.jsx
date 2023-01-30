@@ -11,12 +11,11 @@ const CardProducto = (props) => {
   const navegacion = useNavigate();
   const onClick = () => {
     if (usuario == '') {
-      navegacion("/crear-pedido");
-     
-    } else {
       navegacion("/login");
       Swal.fire("Debe estar logeado para realizar esta accion",
       '', 'error');
+    } else {
+      navegacion("/crear-pedido");
     }
   };
 

@@ -294,7 +294,7 @@ const CrearProducto = () => {
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formMemoriaRam">
-          <Form.Label  >Memoria Ram*</Form.Label>
+          <Form.Label  >Reseña*</Form.Label>
           <Form.Control
             type="text"
             placeholder=" Ej:  Detalles del equipo"
