@@ -19,6 +19,8 @@ import 'react-bootstrap'
 import 'react-icons';
 import "./App.css";
 import { useState } from 'react';
+import Transferencia from './Components/View/pedidos/Transferencia';
+import Efectivo from './Components/View/pedidos/Efectivo';
 function App() {
   
   const usuario = JSON.parse(localStorage.getItem("usuarioEcommerce")) || [];
@@ -81,7 +83,16 @@ function App() {
               </RutasProtegidas>
             }
           ></Route>
-          
+          <Route
+          path='/transferencia'
+          element={
+            <Transferencia></Transferencia>
+          }></Route>
+          <Route
+          path='/efectivo'
+          element={
+            <Efectivo></Efectivo>
+          }></Route>
           </Routes>
       <Pie></Pie>
       </BrowserRouter>

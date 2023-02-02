@@ -16,7 +16,9 @@ const EditarPedido = () => {
         setValue("nombrePedido", respuesta.dato.nombrePedido);
         setValue("pedido", respuesta.dato.pedido);
         setValue("total", respuesta.dato.total);
+        setValue("metodo", respuesta.dato.metodo);
         setValue("estado", respuesta.dato.estado);
+       
       } else {
         Swal.fire(
           "Ocurrio un error",
@@ -129,6 +131,22 @@ const EditarPedido = () => {
               {errors.total?.message}
             </Form.Text>
           </Form.Group>
+          <Form.Group className="mb-3 me-5 " controlId="formMetodo">
+          <Form.Label  >Metodo de pago*</Form.Label>
+          <Form.Select
+            {...register("metodo", {
+              required: "Debe seleccionar un metodo de pago",
+            })}
+          >
+            <option value="">Seleccione una opcion</option>
+            <option value="Transferencia">Transferencia</option>
+            <option value="Efectivo">Efectivo</option>
+            
+          </Form.Select>
+          <Form.Text className="text-dark">
+            {errors.metodo?.message}
+          </Form.Text>
+                </Form.Group>
           <Form.Group className="mb-3" controlId="formEstado">
             <Form.Label className="editar">Estado</Form.Label>
             <Form.Select
@@ -138,8 +156,8 @@ const EditarPedido = () => {
             >
               <option value="">Seleccione el estado del pedido</option>
               <option value="Pendiente">Pendiente</option>
-              <option value="En elaboracion">En elaboracion</option>
-              <option value="Listo para retirar">Listo para retirar</option>
+              <option value="En preparacion">En preparacion</option>
+              
               <option value="Cancelado">Cancelado</option>
             </Form.Select>
             <Form.Text className="text-danger">

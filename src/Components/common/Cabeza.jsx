@@ -30,20 +30,11 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
             navbarScroll
           >
             <NavLink to="/" className=" btn btn-secondary">Inicio</NavLink>
-            {/* <NavLink to="/nosotros" className="btn btn-secondary">Nosotros</NavLink>            */}
-            <NavLink to="/menu" className="btn btn-secondary">Catalogo</NavLink>
-           
-            <NavLink to="/registro" className="btn btn-secondary">Registro</NavLink>
+            <NavLink to="/nosotros" className="btn btn-secondary">Nosotros</NavLink>           
 
-            {usuarioLogueado.email ? (
-              <>
-                <Button variant="dark" className="text-white" onClick={logout}>
-                  Salir
-                </Button>
-              </>
-            ) : (
-              <NavLink to="/login" className="nav">Iniciar Sesión</NavLink>
-            )}
+           
+
+          
 
             {usuarioLogueado.isAdmin ? (
               <>
@@ -72,7 +63,18 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 </NavDropdown>
               </>
             ) : (
-              <></>
+              <NavLink to="/registro" className="btn btn-secondary">Registro</NavLink>
+
+            )}
+              {usuarioLogueado.email ? (
+              <>
+                <Button variant="dark" className="text-white" onClick={logout}>
+                  Salir
+                </Button>
+              </>
+            ) : (
+              <NavLink to="/login" className="nav">Iniciar Sesión </NavLink>
+              
             )}
           </Nav>
           
