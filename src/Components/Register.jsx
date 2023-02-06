@@ -55,7 +55,7 @@ const Register = () => {
                 type="text"
                 placeholder="Ej:Juan Perez"
                 {...register("nombre", {
-                  required: "Complo obligatorio",
+                  required: "Campo obligatorio",
                   minLength: {
                     value: 5,
                     message: "Ingrese mínimo 5 caracteres",

@@ -64,6 +64,7 @@ const CrearPedido = ({ usuarioLogueado }) => {
       nombrePedido: usuarioLogueado.nombre,
       pedido: "",
       total: "",
+      metodo:'',
       estado: "Pendiente",
     },
   });

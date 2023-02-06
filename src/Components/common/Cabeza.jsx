@@ -1,6 +1,15 @@
-import React from 'react';
-import{ Container, Nav, Navbar, NavDropdown, Form, Button } from 'react-bootstrap';
+import React from "react";
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Form,
+  Button,
+ 
+} from "react-bootstrap";
 import { Link, useNavigate, NavLink } from "react-router-dom";
+import {BiSearchAlt} from 'react-icons/bi'
 
 const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
   const navegar = useNavigate();
@@ -9,36 +18,51 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
     setUsuarioLogueado({});
     navegar("/");
   }
-    return (
-      <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <Navbar.Brand as={Link} to='/'>Tecno Más</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-        <Form className="d-flex">
+  return (
+    <Navbar bg="light" expand="lg">
+      <Container >
+       
+        <Navbar.Brand as={Link} to="/">
+          Tecno Más
+        </Navbar.Brand> 
+
+        <Navbar.Toggle aria-controls="navbarScroll"  />
+        <Navbar.Collapse id="navbarScroll" className="justify-content-around"  >
+         <div>
+            <Form className="d-flex ">
             <Form.Control
               type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
+              placeholder="Buscador"
+              className="px-5 mx-2 text-center"
+              aria-label="Buscador"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success"><BiSearchAlt></BiSearchAlt></Button>
           </Form>
+          </div>
+          <div>
           <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
+            className="me-auto my-2 my-lg-0 "
+            style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <NavLink to="/" className=" btn btn-secondary">Inicio</NavLink>
-            <NavLink to="/nosotros" className="btn btn-secondary">Nosotros</NavLink>           
-
+        
+            <NavLink to="/" className=" btn btn-secondary mx-2">
+              Inicio
+            </NavLink>
+            <NavLink to="/nosotros" className="btn btn-secondary mx-2">
+              Nosotros
+            </NavLink>
+           
            
 
-          
-
+        
             {usuarioLogueado.isAdmin ? (
               <>
-                <NavDropdown title="Administrador" className='text-dark' id="nav-dropdown">
+                <NavDropdown
+                  title="Administrador"
+                  className="text-dark mx-2"
+                  id="nav-dropdown"
+                >
                   <NavDropdown.Item
                     eventKey="4.1"
                     as={Link}
@@ -63,25 +87,32 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
                 </NavDropdown>
               </>
             ) : (
-              <NavLink to="/registro" className="btn btn-secondary">Registro</NavLink>
-
+              <></>
             )}
+            
               {usuarioLogueado.email ? (
               <>
-                <Button variant="dark" className="text-white" onClick={logout}>
+                <Button variant="dark" className="text-white mx-2" onClick={logout}>
                   Salir
                 </Button>
               </>
             ) : (
-              <NavLink to="/login" className="nav">Iniciar Sesión </NavLink>
-              
+              <>
+              <NavLink to="/login" className="btn btn-secondary mx-2">
+                Iniciar Sesión
+              </NavLink>
+              <NavLink to="/registro" className="btn btn-secondary mx-2">
+              Registrarse
+            </NavLink>
+              </>
             )}
+        
           </Nav>
-          
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    );
+  );
 };
 
 export default Cabeza;
