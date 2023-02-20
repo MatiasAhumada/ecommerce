@@ -5,7 +5,7 @@ import {
   Navbar,
   NavDropdown,
   Form,
-  Button,
+  Button
  
 } from "react-bootstrap";
 import { Link, useNavigate, NavLink } from "react-router-dom";
@@ -19,15 +19,16 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
     navegar("/");
   }
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" >
       <Container >
        
         <Navbar.Brand as={Link} to="/">
           Tecno Más
         </Navbar.Brand> 
-
+       
         <Navbar.Toggle aria-controls="navbarScroll"  />
-        <Navbar.Collapse id="navbarScroll" className="justify-content-around"  >
+        
+        <Navbar.Collapse id="navbarScroll" className="d-flex justify-content-around"  >
          <div>
             <Form className="d-flex ">
             <Form.Control
@@ -110,7 +111,8 @@ const Cabeza = ({ usuarioLogueado, setUsuarioLogueado }) => {
           </Nav>
           </div>
         </Navbar.Collapse>
-      </Container>
+      
+    </Container>  
     </Navbar>
   );
 };

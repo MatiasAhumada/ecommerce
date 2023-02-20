@@ -25,7 +25,7 @@ const Login = ({ setUsuarioLogeado }) => {
       if (respuesta) {
         localStorage.setItem("usuarioEcommerce", JSON.stringify(respuesta));
         setUsuarioLogeado(respuesta);
-        navegar("/");
+        navegar("/crear-pedido");
       } else {
         Swal.fire("Error", "Nombre de usuario o password incorrecto", "error");
       }

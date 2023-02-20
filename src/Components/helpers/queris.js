@@ -44,6 +44,7 @@ export const crearProductoApi = async (producto) => {
       console.log(error);
     }
   };
+  
   export const editarProductoApi = async (id, datosActualizados) => {
     try {
       const respuesta = await fetch(URL + "/" + id, {
@@ -60,6 +61,17 @@ export const crearProductoApi = async (producto) => {
   };
   
   export const consultarProductoApi = async () => {
+    try {
+      const respuesta = await fetch(URL);
+  
+      const listaMarca = await respuesta.json();
+      console.log(listaMarca)
+      return listaMarca;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  export const consultarMarcaApi = async () => {
     try {
       const respuesta = await fetch(URL);
   

@@ -3,7 +3,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cabeza from './Components/common/Cabeza';
 import Pie from './Components/common/Pie';
-import Inicio from './Components/View/Inicio';
+import Inicio from './Components/Inicio';
 import Login from './Components/Login'
 import Register from './Components/Register'
 import RutasProtegidas from './Components/routes/RutasProtegidas';
@@ -12,7 +12,7 @@ import AdminUsuarios from './Components/AdminUsuarios';
 import AdminPedidos from './Components/AdminPedidos';
 import DetallePedido from './Components/View/pedidos/DetallePedido';
 import DetalleProducto from './Components/View/productos/DetalleProducto';
-import PedidosUsuario from './Components/View/PedidosUsuario';
+
 import CrearPedido from './Components/View/pedidos/CrearPedido';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap'
@@ -54,11 +54,7 @@ function App() {
           path="/detalle-pedido/:id"
           element={<DetallePedido></DetallePedido>}
         ></Route>
-        <Route
-            exact
-            path="/pedidos"
-            element={<PedidosUsuario></PedidosUsuario>}
-          ></Route>
+       
           <Route
           exact
           path="/crear-pedido"
