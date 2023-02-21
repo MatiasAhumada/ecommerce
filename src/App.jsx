@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Cabeza from "./Components/common/Cabeza";
 import Pie from "./Components/common/Pie";
 import Inicio from "./Components/Inicio";
@@ -29,7 +29,6 @@ function App() {
   const [productos, setProductos] = useState([]);
   const [tablaProductos, settablaProductos] = useState([]);
 
-  const navegacion = useNavigate();
   useEffect(() => {
     consultarProductoApi().then((respuesta) => {
       try {
@@ -37,7 +36,7 @@ function App() {
           setProductos(respuesta);
           settablaProductos(respuesta);
         } else {
-          navegacion("/error404");
+          <Link to={"/error404"}></Link>;
         }
       } catch (error) {
         console.log(error);
@@ -55,10 +54,14 @@ function App() {
       if (
         elemento.nombreProducto
           .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase()) ||
+        elemento.marca
+          .toLowerCase()
           .includes(terminoBusqueda.toLowerCase())
       ) {
         return elemento;
       } else {
+        <Link to={"/error404"}></Link>;
       }
     });
     setProductos(resultadoBusqueda);

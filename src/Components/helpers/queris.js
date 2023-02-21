@@ -1,6 +1,6 @@
-const URL=process.env.REACT_APP_API_LOCAL_PRODUCTOS
-const urlUsuario =process.env.REACT_APP_API_LOCAL_USUARIOS
-const URLpedidos = process.env.REACT_APP_API_LOCAL_PEDIDOS
+const URL=process.env.REACT_APP_API_TECNO_MAS_PRODUCTOS
+const urlUsuario =process.env.REACT_APP_API_TECNO_MAS_USUARIOS
+const URLpedidos = process.env.REACT_APP_API_TECNO_MAS_PEDIDOS
 // PRODUCTOS
 export const crearProductoApi = async (producto) => {
     try {

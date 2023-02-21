@@ -14,7 +14,7 @@ const Inicio = (props) => {
   useEffect(() => {
     consultarProductoApi().then((respuesta) => {
       try {
-        if (respuesta) {
+        if (respuesta ) {
           setMostrarSpiner(false);
         } else {
           setMostrarSpiner(true);
