@@ -157,6 +157,10 @@ const EditarPedido = () => {
               <option value="">Seleccione el estado del pedido</option>
               <option value="Pendiente">Pendiente</option>
               <option value="En preparacion">En preparacion</option>              
+              <option value="Listo para retirar">Listo para retirar</option>              
+              <option value="Retirado">Retirado</option>              
+              
+
               <option value="Cancelado">Cancelado</option>
             </Form.Select>
             <Form.Text className="text-danger">

@@ -20,7 +20,7 @@ export const crearProductoApi = async (producto) => {
   
   export const borrarProductoAPI = async (id) => {
     try {
-      const respuesta = await fetch(URL + "/" + id, {
+      const respuesta = await fetch( `${URL}/${id}` , {
         method: "DELETE",
       });
   
@@ -32,7 +32,7 @@ export const crearProductoApi = async (producto) => {
   
   export const obtenerProductoApi = async (id) => {
     try {
-      const respuesta = await fetch(URL + "/" + id);
+      const respuesta = await fetch(`${URL}/${id}`);
       const productoBuscado = {
         dato: await respuesta.json(),
         status: respuesta.status,
@@ -47,7 +47,7 @@ export const crearProductoApi = async (producto) => {
   
   export const editarProductoApi = async (id, datosActualizados) => {
     try {
-      const respuesta = await fetch(URL + "/" + id, {
+      const respuesta = await fetch(`${URL}/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -61,17 +61,7 @@ export const crearProductoApi = async (producto) => {
   };
   
   export const consultarProductoApi = async () => {
-    try {
-      const respuesta = await fetch(URL);
   
-      const listaMarca = await respuesta.json();
-      console.log(listaMarca)
-      return listaMarca;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  export const consultarMarcaApi = async () => {
     try {
       const respuesta = await fetch(URL);
   
@@ -82,6 +72,7 @@ export const crearProductoApi = async (producto) => {
       console.log(error);
     }
   };
+ 
   // USUARIOS
 export const usuarioLogin = async (usuario) => {
     try {
@@ -106,7 +97,7 @@ export const usuarioLogin = async (usuario) => {
   };
   export const obtenerUsuarioApi = async (id) => {
     try {
-      const respuesta = await fetch(urlUsuario + "/" + id);
+      const respuesta = await fetch(`${urlUsuario}/${id}`);
       const usuarioBuscado = {
         dato: await respuesta.json(),
         status: respuesta.status,
@@ -135,7 +126,7 @@ export const usuarioLogin = async (usuario) => {
   };
   export const borrarUsuarioAPI = async (id) => {
     try {
-      const respuesta = await fetch(urlUsuario + "/" + id, {
+      const respuesta = await fetch(`${urlUsuario}/${id}`, {
         method: "DELETE",
       });
   
@@ -147,7 +138,7 @@ export const usuarioLogin = async (usuario) => {
   export const editarUsuarioApi = async (id, datosActualizados) => {
     try {
   
-      const respuestaUsuario = await fetch(urlUsuario + "/" + id, {
+      const respuestaUsuario = await fetch(`${urlUsuario}/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -211,7 +202,7 @@ export const borrarPedidoAPI = async (id) => {
 
 export const obtenerPedidoAPI = async (id) => {
   try {
-    const respuesta = await fetch(URLpedidos + "/" + id);
+    const respuesta = await fetch(`${URLpedidos}/${id}`);
     const productoBuscado = {
       dato: await respuesta.json(),
       status: respuesta.status,
@@ -224,7 +215,7 @@ export const obtenerPedidoAPI = async (id) => {
 
 export const editarPedidoAPI = async (id, datosActualizados) => {
   try {
-    const respuesta = await fetch(URLpedidos + "/" + id, {
+    const respuesta = await fetch(`${URLpedidos}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -241,7 +232,7 @@ export const editarPedidoAPI = async (id, datosActualizados) => {
 
 export const listaPedidosPendientesAPI = async () => {
   try {
-    const respuesta = await fetch(URLpedidos + "-pendientes");
+    const respuesta = await fetch(`${URLpedidos} pendiente`);
     const pedidosPendientes = await respuesta.json();
     return pedidosPendientes;
   } catch (error) {
@@ -253,7 +244,7 @@ export const listaPedidosPendientesAPI = async () => {
 
 export const listaPedidosProcesandoAPI = async () => {
   try {
-    const respuesta = await fetch(URLpedidos + "-procesando");
+    const respuesta = await fetch(`${URLpedidos} procesando`);
     const pedidosElaboracion = await respuesta.json();
     return pedidosElaboracion;
   } catch (error) {
@@ -265,7 +256,7 @@ export const listaPedidosProcesandoAPI = async () => {
 
 export const listaPedidosListosAPI = async () => {
   try {
-    const respuesta = await fetch(URLpedidos + "-listos");
+    const respuesta = await fetch(`${URLpedidos} listos`);
     const pedidosListos = await respuesta.json();
     return pedidosListos;
   } catch (error) {
@@ -277,7 +268,7 @@ export const listaPedidosListosAPI = async () => {
 
 export const listaPedidosCanceladosAPI = async () => {
   try {
-    const respuesta = await fetch(URLpedidos + "-cancelados");
+    const respuesta = await fetch(`${URLpedidos} cancelados`);
     const pedidosCancelados = await respuesta.json();
     return pedidosCancelados;
   } catch (error) {
