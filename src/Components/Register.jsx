@@ -12,7 +12,7 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+   
   } = useForm({
     defaultValues: {
       nombre: "",
@@ -30,7 +30,7 @@ const Register = () => {
           " Ahora puedes ingresar con tu cuenta!",
           "success"
         );
-        reset();
+      
         navegar("/login");
       } else {
         Swal.fire(
