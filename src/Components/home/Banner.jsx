@@ -1,8 +1,9 @@
 import React from 'react';
-import{ Carousel} from 'react-bootstrap';
+import{ Carousel, Container} from 'react-bootstrap';
 import "../css/carousel.css"
 const Banner = () => {
     return (
+      <Container>
         <Carousel className='w'>
       <Carousel.Item>
         <img
@@ -42,6 +43,7 @@ const Banner = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </Container>
   );
 }
 
